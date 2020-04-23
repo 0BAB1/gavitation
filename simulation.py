@@ -1,9 +1,12 @@
 import pygame
 from entity import *
 
+def collidable(one, two):
+    if one is two:
+        return False
+    else:
+        return one.rect.colliderect(two.rect)
+
 class Simulation():
     def __init__(self):
         self.all_ent = pygame.sprite.Group()
-
-    def check_collision(self, sprite, group):
-        return pygame.sprite.spritecollide(sprite, group, True, pygame.sprite.collide_mask)
