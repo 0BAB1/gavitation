@@ -13,6 +13,8 @@ class Control(object):
         self.simu = Simulation()
 
         self.originX, self.originY = self.screen.get_width()/2,self.screen.get_height()/2
+
+        self.make_planets()
  
     def make_planets(self):
         sun = Entity(self.originX, self.originY, 0, 0, 0, 0, 2*10**30)
@@ -20,6 +22,8 @@ class Control(object):
 
         self.simu.all_ent.add(sun)
         self.simu.all_ent.add(earth)
+
+        print(self.simu.all_ent)
  
     def event_loop(self):
         for event in pygame.event.get():
@@ -53,4 +57,4 @@ class Control(object):
                         self.simu.all_ent.remove(ent2)
                         continue
 
-                    pygame.display.update()
+            pygame.display.update()
